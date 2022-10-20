@@ -141,10 +141,12 @@
   <ItemGroup>
     <ClInclude Include="DoublyLinkedList.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DoublyLinkedList.inl" />
+    <None Include="Queue.inl" />
     <None Include="Stack.inl" />
   </ItemGroup>
   <ItemGroup>

@@ -1,32 +1,32 @@
 #pragma once
-#include"Stack.h"
+#include"Queue.h"
 
 template<typename Type>
-Stack<Type>::Stack():list()
+Queue<Type>::Queue():list()
 {
 	//âΩÇ‡ÇµÇ»Ç¢
 }
 
 template<typename Type>
-Stack<Type>::~Stack()
+Queue<Type>::~Queue()
 {
 	//âΩÇ‡ÇµÇ»Ç¢
 }
 
 template<typename Type>
-inline uint32_t Stack<Type>::GetSize()const
+inline uint32_t Queue<Type>::GetSize()const
 {
 	return list.GetSize();
 }
 
 template<typename Type>
-inline bool Stack<Type>::Push(const Type& data)
+inline bool Queue<Type>::Push(const Type& data)
 {
 	return list.Insert(list.GetEnd(), data);
 }
 
 template<typename Type>
-inline bool Stack<Type>::Pop(Type& destination)
+inline bool Queue<Type>::Pop(Type& destination)
 {
 	//óvëfÇ™Ç»ÇØÇÍÇŒèIóπ
 	if (GetSize() == static_cast<uint32_t>(0)) {

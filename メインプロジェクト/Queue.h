@@ -2,12 +2,12 @@
 #include"DoublyLinkedList.h"
 
 template<typename Type>
-class Stack
+class Queue
 {
 public:
-	Stack();
-	Stack(const Stack& obj) = default;
-	~Stack();
+	Queue();
+	Queue(const Queue& obj) = default;
+	~Queue();
 
 	/**
 	 * @brief データの数を取得します
@@ -24,7 +24,7 @@ public:
 	/**
 	 * @brief 先頭の要素を取り出します
 	 * @param[out] 取り出した要素の格納先
-	 * @return スタックが空の場合falseを戻します
+	 * @return キューが空の場合falseを戻します
 	 */
 	bool Pop(Type& destination);
 
@@ -33,4 +33,4 @@ private:
 	DoublyLinkedList<Type> list;
 };
 
-#include"Stack.inl"
+#include"Queue.inl"
