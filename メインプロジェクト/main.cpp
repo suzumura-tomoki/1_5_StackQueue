@@ -55,7 +55,8 @@ int main() {
 	//“Ç‚İ‚ñ‚¾’l‚ğo—Í
 	const DoublyLinkedList<ResultData>::Iterator end = list.GetEnd();
 	for (it = list.GetBegin(); it != end; it++) {
-		printf(it->score.c_str());
+		printf(std::to_string(it->score).c_str());
+		printf("\t");
 		printf(it->name.c_str());
 		printf("\n");
 	}
