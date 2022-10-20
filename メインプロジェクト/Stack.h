@@ -24,7 +24,7 @@ public:
 	/**
 	 * @brief 末尾の要素を取り出します
 	 * @param[out] 取り出した要素の格納先
-	 * @return スタックが空の場合falseを戻します
+	 * @return スタックが空の場合は何も取り出されずfalseを戻します
 	 */
 	bool Pop(Type& destination);
 

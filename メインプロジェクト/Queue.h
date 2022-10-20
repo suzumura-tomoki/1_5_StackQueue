@@ -22,9 +22,9 @@ public:
 	bool Push(const Type& data);
 
 	/**
-	 * @brief 末尾の要素を取り出します
+	 * @brief 先頭の要素を取り出します
 	 * @param[out] 取り出した要素の格納先
-	 * @return キューが空の場合falseを戻します
+	 * @return キューが空の場合は何も取り出されずfalseを戻します
 	 */
 	bool Pop(Type& destination);
 
