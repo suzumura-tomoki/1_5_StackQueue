@@ -33,11 +33,11 @@ inline bool Queue<Type>::Pop(Type& destination)
 		return false;
 	}
 
-	//末尾ダミーの1つ前のデータを引数に移す
-	DoublyLinkedList<Type>::Iterator end = --list.GetEnd();
-	destination = std::move(*end);
+	//先頭要素のデータを引数に移す
+	DoublyLinkedList<Type>::Iterator begin = list.GetBegin();
+	destination = std::move(*begin);
 	//データの移動元の要素を削除する
-	list.Delete(end);
+	list.Delete(begin);
 
 	return true;
 }
