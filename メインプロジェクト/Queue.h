@@ -14,7 +14,7 @@ public:
 	/** @brief デフォルトコピーコンストラクタ */
 	Queue(const Queue& obj) = default;
 	/** @brief デストラクタ */
-	~Queue();
+	virtual ~Queue();
 
 	/**
 	 * @brief データの数を取得します

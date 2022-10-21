@@ -37,7 +37,5 @@ inline bool Stack<Type>::Pop(Type& destination)
 	DoublyLinkedList<Type>::Iterator end = --list.GetEnd();
 	destination = std::move(*end);
 	//データの移動元の要素を削除する
-	list.Delete(end);
-
-	return true;
+	return list.Delete(end);
 }

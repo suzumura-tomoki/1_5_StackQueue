@@ -14,7 +14,7 @@ public:
 	/** @brief デフォルトコピーコンストラクタ */
 	Stack(const Stack& obj) = default;
 	/** @brief デストラクタ */
-	~Stack();
+	virtual ~Stack();
 
 	/**
 	 * @brief データの数を取得します

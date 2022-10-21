@@ -37,7 +37,5 @@ inline bool Queue<Type>::Pop(Type& destination)
 	DoublyLinkedList<Type>::Iterator begin = list.GetBegin();
 	destination = std::move(*begin);
 	//データの移動元の要素を削除する
-	list.Delete(begin);
-
-	return true;
+	return list.Delete(begin);
 }

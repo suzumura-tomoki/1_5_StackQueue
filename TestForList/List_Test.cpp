@@ -519,8 +519,12 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(GetBeginTest, CallGetBeginWhenEmpty)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			EXPECT_DEATH(list.GetBegin()++, "Assertion failed");
+#else
+			SUCCEED();
+#endif
 		}
 
 		/**********************************************************************************//**
@@ -640,8 +644,12 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(GetConstBeginTest, CallGetConstBeginWhenEmpty)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			EXPECT_DEATH(list.GetConstBegin()++, "Assertion failed");
+#else
+			SUCCEED();
+#endif
 		}
 
 		/**********************************************************************************//**
@@ -755,8 +763,13 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(GetEndTest, CallGetEndWhenEmpty)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			EXPECT_DEATH(list.GetEnd()++, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+			
 		}
 
 		/**********************************************************************************//**
@@ -768,12 +781,17 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(GetEndTest, CallGetEndWhenOneData)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 
 			DoublyLinkedList<ResultData>::Iterator it = list.GetBegin();
 
 			list.Insert(it, data);
 			EXPECT_DEATH(list.GetEnd()++, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+			
 		}
 
 		/**********************************************************************************//**
@@ -785,6 +803,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(GetEndTest, CallGetEndWhenMultipledData)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 
 			DoublyLinkedList<ResultData>::Iterator it = list.GetBegin();
@@ -792,6 +811,10 @@ namespace ex01_DataStructure
 			list.Insert(it, data);
 
 			EXPECT_DEATH(list.GetEnd()++, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+			
 		}
 
 		/**********************************************************************************//**
@@ -803,6 +826,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(GetEndTest, CallGetEndAffterAdd)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			DoublyLinkedList<ResultData>::Iterator it = list.GetBegin();
 
@@ -815,6 +839,10 @@ namespace ex01_DataStructure
 			//中央に要素を追加
 			list.Insert(list.GetBegin() + 1, data);
 			EXPECT_DEATH(list.GetEnd()++, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+			
 		}
 
 		/**********************************************************************************//**
@@ -826,6 +854,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(GetEndTest, CallGetEndAffterDelete)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			DoublyLinkedList<ResultData>::Iterator itBegin = list.GetBegin();
 
@@ -843,6 +872,10 @@ namespace ex01_DataStructure
 			//末尾の要素を削除
 			EXPECT_FALSE(list.Delete(list.GetEnd()));//失敗することを確認
 			EXPECT_DEATH(list.GetEnd()++, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+			
 		}
 
 		/**********************************************************************************//**
@@ -868,8 +901,13 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(GetConstEndTest, CallGetConstEndWhenEmpty)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			EXPECT_DEATH(list.GetConstEnd()++, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+			
 		}
 
 		/**********************************************************************************//**
@@ -881,6 +919,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(GetConstEndTest, CallGetConstEndWhenOneData)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 
 			DoublyLinkedList<ResultData>::Iterator it = list.GetBegin();
@@ -888,6 +927,10 @@ namespace ex01_DataStructure
 			list.Insert(it, data);
 
 			EXPECT_DEATH(list.GetConstEnd()++, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+			
 		}
 
 		/**********************************************************************************//**
@@ -899,6 +942,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(GetConstEndTest, CallGetConstEndWhenMultipledData)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 
 			DoublyLinkedList<ResultData>::Iterator it = list.GetBegin();
@@ -906,6 +950,10 @@ namespace ex01_DataStructure
 			list.Insert(it, data);
 
 			EXPECT_DEATH(list.GetConstEnd()++, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+			
 		}
 
 		/**********************************************************************************//**
@@ -917,6 +965,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(GetConstEndTest, CallGetConstEndAffterAdd)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 
 			//先頭に要素を追加
@@ -928,6 +977,10 @@ namespace ex01_DataStructure
 			//中央に要素を追加
 			list.Insert(list.GetBegin() + 1, data);
 			EXPECT_DEATH(list.GetConstEnd()++, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+			
 		}
 
 		/**********************************************************************************//**
@@ -939,6 +992,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(GetConstEndTest, CallGetConstEndAffterDelete)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			DoublyLinkedList<ResultData>::Iterator itBegin = list.GetBegin();
 
@@ -956,6 +1010,10 @@ namespace ex01_DataStructure
 			//末尾の要素を削除
 			EXPECT_FALSE(list.Delete(list.GetEnd()));
 			EXPECT_DEATH(list.GetConstEnd()++, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+			
 
 		}
 
@@ -982,12 +1040,17 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorGetNodeTest, GetNodeWhenNoReference)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData>::Iterator it;
 			EXPECT_DEATH(it->name, "Assertion failed");//エラーになれば成功
 
 			//コンストイテレータ
 			DoublyLinkedList<ResultData>::ConstIterator cit;
 			EXPECT_DEATH(cit->name, "Assertion failed");//エラーになれば成功
+#else
+			SUCCEED();
+#endif
+			
 		}
 
 		/**********************************************************************************//**
@@ -999,6 +1062,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorGetNodeTest, GetNodeAndAssignment)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			DoublyLinkedList<ResultData>::Iterator it = list.GetBegin();
 			std::string testString = "テスト";
@@ -1006,6 +1070,10 @@ namespace ex01_DataStructure
 			it->name = testString;
 
 			EXPECT_EQ(testString, it->name);
+#else
+			SUCCEED();
+#endif
+			
 		}
 
 		/**********************************************************************************//**
@@ -1029,6 +1097,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorGetNodeTest, GetTopNodeWhenEmpty)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			DoublyLinkedList<ResultData>::Iterator it = list.GetBegin();
 
@@ -1037,6 +1106,10 @@ namespace ex01_DataStructure
 			//コンストイテレータ
 			DoublyLinkedList<ResultData>::ConstIterator cit = list.GetConstBegin();
 			EXPECT_DEATH(cit->name, "Assertion failed");//エラーになれば成功
+#else
+			SUCCEED();
+#endif
+			
 		}
 
 
@@ -1049,6 +1122,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorGetNodeTest, GetNodeByEnd)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			DoublyLinkedList<ResultData>::Iterator it = list.GetEnd();
 
@@ -1056,7 +1130,11 @@ namespace ex01_DataStructure
 
 			//コンストイテレータ
 			DoublyLinkedList<ResultData>::ConstIterator cit = list.GetConstEnd();
-			EXPECT_DEATH(cit->name, "Assertion failed");//エラーになれば成功
+			EXPECT_DEATH(cit->name, "Assertion failed");//エラーになれば成功  
+#else
+			SUCCEED();
+#endif
+
 		}
 
 		//======================== イテレータをリストの末尾に向かって一つ進める ===========================
@@ -1070,6 +1148,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorIncrement, IncrementWhenNoReference)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData>::Iterator it;
 
 			EXPECT_DEATH(it++, "Assertion failed");
@@ -1077,6 +1156,10 @@ namespace ex01_DataStructure
 			//コンストイテレータ
 			DoublyLinkedList<ResultData>::ConstIterator cit;
 			EXPECT_DEATH(cit++, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+
 		}
 
 		/**********************************************************************************//**
@@ -1088,6 +1171,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorIncrement, IncrementWhenEmpty)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			DoublyLinkedList<ResultData>::Iterator it = list.GetBegin();
 
@@ -1096,6 +1180,10 @@ namespace ex01_DataStructure
 			//コンストイテレータ
 			DoublyLinkedList<ResultData>::ConstIterator cit = list.GetConstBegin();
 			EXPECT_DEATH(cit++, "Assertion failed");
+#else
+			SUCCEED();
+#endif 
+
 		}
 
 		/**********************************************************************************//**
@@ -1107,6 +1195,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorIncrement, IncrementToEndIterator)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			DoublyLinkedList<ResultData>::Iterator it = list.GetEnd();
 
@@ -1115,6 +1204,10 @@ namespace ex01_DataStructure
 			//コンストイテレータ
 			DoublyLinkedList<ResultData>::ConstIterator cit = list.GetConstEnd();
 			EXPECT_DEATH(cit++, "Assertion failed");
+#else
+			SUCCEED();
+#endif 
+
 		}
 
 		/**********************************************************************************//**
@@ -1219,6 +1312,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorDecrement, DecrementWhenNoReference)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData>::Iterator it;
 
 			EXPECT_DEATH(it--, "Assertion failed");
@@ -1226,6 +1320,10 @@ namespace ex01_DataStructure
 			//コンストイテレータ
 			DoublyLinkedList<ResultData>::ConstIterator cit;
 			EXPECT_DEATH(cit--, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+
 		}
 
 		/**********************************************************************************//**
@@ -1237,6 +1335,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorDecrement, DecrementWhenEmpty)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			DoublyLinkedList<ResultData>::Iterator it = list.GetEnd();
 
@@ -1245,6 +1344,10 @@ namespace ex01_DataStructure
 			//コンストイテレータ
 			DoublyLinkedList<ResultData>::ConstIterator cit = list.GetConstEnd();
 			EXPECT_DEATH(cit--, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+
 		}
 
 		/**********************************************************************************//**
@@ -1256,6 +1359,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorDecrement, DecrementToEndIterator)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			DoublyLinkedList<ResultData>::Iterator it = list.GetBegin();
 
@@ -1264,6 +1368,10 @@ namespace ex01_DataStructure
 			//コンストイテレータ
 			DoublyLinkedList<ResultData>::ConstIterator cit = list.GetConstBegin();
 			EXPECT_DEATH(cit--, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+
 		}
 
 		/**********************************************************************************//**
@@ -1591,6 +1699,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorOperatorPlus, PlusWhenNoReference)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData>::Iterator it;
 
 			EXPECT_DEATH(it + 1, "Assertion failed");
@@ -1603,6 +1712,10 @@ namespace ex01_DataStructure
 			EXPECT_DEATH(cit + 1, "Assertion failed");
 			EXPECT_DEATH(cit + 0, "Assertion failed");
 			EXPECT_DEATH(cit + -1, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+
 		}
 
 		/**********************************************************************************//**
@@ -1614,6 +1727,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorOperatorPlus, PlusWhenEmpty)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			DoublyLinkedList<ResultData>::Iterator it = list.GetBegin();
 			DoublyLinkedList<ResultData>::Iterator itEnd = list.GetEnd();
@@ -1628,6 +1742,10 @@ namespace ex01_DataStructure
 			EXPECT_DEATH(cit + 1, "Assertion failed");
 			EXPECT_TRUE(cit + 0 == itEnd);
 			EXPECT_DEATH(cit + -1, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+
 		}
 
 		/**********************************************************************************//**
@@ -1639,6 +1757,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorOperatorPlus, CallByEndIterator)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			DoublyLinkedList<ResultData>::Iterator it = list.GetBegin();
 
@@ -1655,6 +1774,10 @@ namespace ex01_DataStructure
 			EXPECT_DEATH(cit + 1, "Assertion failed");
 			EXPECT_TRUE((cit + 0) == list.GetEnd());
 			EXPECT_TRUE((cit + -1) == list.GetBegin());
+#else
+			SUCCEED();
+#endif
+
 
 		}
 
@@ -1667,6 +1790,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorOperatorPlus, PlusWhenMultipleData)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			DoublyLinkedList<ResultData>::Iterator it = list.GetBegin();
 
@@ -1691,6 +1815,10 @@ namespace ex01_DataStructure
 			EXPECT_TRUE((cit + 0) == ++list.GetBegin());
 			EXPECT_TRUE((cit + -1) == list.GetBegin());
 			EXPECT_DEATH(cit + -2, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+
 		}
 
 		//====================== 先頭に指定した数進めたイテレータを返す ==========================
@@ -1704,6 +1832,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorOperatorMinus, MinusWhenNoReference)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData>::Iterator it;
 
 			EXPECT_DEATH(it - 1, "Assertion failed");
@@ -1716,6 +1845,10 @@ namespace ex01_DataStructure
 			EXPECT_DEATH(cit - 1, "Assertion failed");
 			EXPECT_DEATH(cit - 0, "Assertion failed");
 			EXPECT_DEATH(cit - -1, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+
 		}
 
 		/**********************************************************************************//**
@@ -1727,6 +1860,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorOperatorMinus, MinusWhenEmpty)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			DoublyLinkedList<ResultData>::Iterator it = list.GetBegin();
 			DoublyLinkedList<ResultData>::Iterator itBegin = list.GetBegin();
@@ -1741,6 +1875,10 @@ namespace ex01_DataStructure
 			EXPECT_DEATH(cit - 1, "Assertion failed");
 			EXPECT_TRUE(cit - 0 == itBegin);
 			EXPECT_DEATH(cit - -1, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+
 
 		}
 
@@ -1753,6 +1891,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorOperatorMinus, CallByTopIterator)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			DoublyLinkedList<ResultData>::Iterator it = list.GetBegin();
 
@@ -1768,6 +1907,10 @@ namespace ex01_DataStructure
 			EXPECT_DEATH(cit - 1, "Assertion failed");
 			EXPECT_TRUE(cit - 0 == list.GetBegin());
 			EXPECT_TRUE((cit - -1) == list.GetEnd());
+#else
+			SUCCEED();
+#endif
+
 
 		}
 
@@ -1780,6 +1923,7 @@ namespace ex01_DataStructure
 		*//***********************************************************************************/
 		TEST(IteratorOperatorMinus, MinusWhenMultipleData)
 		{
+#ifdef _DEBUG
 			DoublyLinkedList<ResultData> list; ResultData data;
 			DoublyLinkedList<ResultData>::Iterator it = list.GetBegin();
 
@@ -1805,6 +1949,10 @@ namespace ex01_DataStructure
 			EXPECT_TRUE((cit - 0) == ++list.GetBegin());//２番目の要素
 			EXPECT_TRUE((cit - -1) == list.GetEnd());//末尾
 			EXPECT_DEATH(cit - -2, "Assertion failed");
+#else
+			SUCCEED();
+#endif
+
 		}
 
 	}//namespace chapter2
