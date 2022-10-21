@@ -1,12 +1,19 @@
 #pragma once
 #include"DoublyLinkedList.h"
 
+/**
+ * @brief データを格納し、後に格納されたデータから順に取り出します
+ * @tparam Type 格納するデータの型
+ */
 template<typename Type>
 class Stack
 {
 public:
+	/** @brief コンストラクタ */
 	Stack();
+	/** @brief デフォルトコピーコンストラクタ */
 	Stack(const Stack& obj) = default;
+	/** @brief デストラクタ */
 	~Stack();
 
 	/**
@@ -17,6 +24,7 @@ public:
 
 	/**
 	 * @brief 末尾に要素を追加します
+	 * @param[in] 追加するデータ
 	 * @return 追加の成否
 	 */
 	bool Push(const Type& data);
